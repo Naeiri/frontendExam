@@ -1,0 +1,274 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>The WhitSundays</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/icons8-beach-96.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <nav class="navbar">
+        <div class="navbar-container">
+          <div class="nav-left">
+            <button class="hamburger" onclick="toggleMenu()">
+              <i class="fa fa-bars"></i>
+            </button>
+            <button class="play-button">
+              <a href="#play"><i class="fa fa-play"></i></a>
+            </button>
+            <div id="nav-links" class="nav-links">
+              <a href="#background">Background & Challenge</a>
+              <a href="#solution">Solution</a>
+              <a href="#results">Results & Effectiveness</a>
+              <a href="#">Slideshow</a>
+            </div>
+          </div>
+          <div class="nav-right">
+            <button class="download-button" onclick="alert('Download Board Clicked!')">
+              <i class="fa fa-download"></i>
+              Download Board
+            </button>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="gradient-background">
+      <section class="section-one" id="play">
+        <div class="heading">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/yuEruLKDB5s?si=l9MnuYjYybEMeNvj"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+            style="border-radius: 10px; -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.45); box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.45);">
+          </iframe>
+        </div>
+      </section>
+
+      <section class="section-two" id="background">
+        <div class="content">
+          <div class="left-content">
+            <div>
+              <img src="images/whitslogo.png" alt="Whitsunday's Logo" width="95%">
+            </div>
+          </div>
+          <div class="right-content">
+            <div>
+              <h3>Background<br>& Audience</h3>
+              <p>Tourism & Events Queensland wanted to increase consideration of The Whitsundays amongst 'social fun
+                seekers'; digitally savvy consumers that socialise substantially online.</p>
+              <h3>Problem</h3>
+              <p>The Whitsundays was losing its cachet as an aspirational holiday location.</p>
+              <h3>Objective</h3>
+              <p>Shift perceptions and re-build the Whitsundays' social currency as a world-class destination.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-three" id="solution">
+        <h3>Solution</h3>
+        <div class="content">
+          <div class="left-content">
+            <p>We knew movies rated high on the list of our target's interests and, with incredible beaches, seaplanes,
+              yachts and glamarous locations, the Whitsundays is the perfect setting for a movie.</p>
+            <p>So we invited Australians to write it:</p>
+            <h6>The Whitsundays.<br>A movie that's waiting to be written.</h6>
+            <p>We enlisted world-renowned screenwriter Craig Pearce as Script Supervisor. Then for 20 days we posted a
+              daily storyboard image on Facebook and Instagram, inviting the public to write scenes for a chance to win
+              a
+              $10,000 luxury holiday</p>
+          </div>
+          <div class="right-content">
+            <p>The campaign launched with a trailer, radio, and online advertising.</p>
+            <p>We reacted to the storyline as it developed, selecting and treating images according to the previous
+              winning scence.</p>
+            <p>Each scene written and shared became a compelling "ad" for the Whitsundays</p>
+            <p>Together, a Hollywood screenwriter and the Australian public had created a world's first crowd-sourced
+              movie storyboard and a story universe with millions of possible permutations.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-four" id="results">
+        <div class="content">
+          <nav class="tab-nav">
+            <a href="#" data-type="video" class="active">Video</a>
+            <a href="#" data-type="photography">Photography</a>
+            <a href="#" data-type="social">Social</a>
+            <a href="#" data-type="pr">PR</a>
+            <a href="#" data-type="radio">Radio</a>
+          </nav>
+          <div class="media-content">
+            <div class="media-placeholder" id="dynamic-content"></div>
+            <div class="media-text">
+              <div class="text-title"></div>
+              <div class="text-content"></div>
+            </div>
+          </div>
+          <div class="button-container">
+            <button class="view-project-btn" onclick="alert('View Project Clicked!')">View Project</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  </div>
+</body>
+
+<script>
+  function toggleMenu() {
+    const navLinks = document.getElementById("nav-links");
+    navLinks.classList.toggle("active");
+  }
+
+  // Manages active state of navbar links on click
+  const navbarLinks = document.querySelectorAll('.navbar a');
+  navbarLinks.forEach(link => {
+    link.addEventListener('click', function () {
+      navbarLinks.forEach(navLink => navLink.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // Updates navigation active states when scrolling
+  document.addEventListener("DOMContentLoaded", function () {
+    const navbarLinks = document.querySelectorAll('.navbar a');
+    const sections = document.querySelectorAll('section');
+
+    function removeActiveClasses() {
+      navbarLinks.forEach(link => link.classList.remove('active'));
+    }
+
+    function addActiveClassToCurrentSection() {
+      let scrollPosition = window.scrollY;
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (scrollPosition >= sectionTop - 100 && scrollPosition < sectionTop + sectionHeight - 100) {
+          const currentId = section.getAttribute('id');
+          removeActiveClasses();
+          document.querySelector(`.navbar a[href="#${currentId}"]`).classList.add('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', addActiveClassToCurrentSection);
+  });
+
+  // Smooth Scrolling Effect
+  document.querySelectorAll('.navbar a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Fourth Section - Initializes dynamic content and handles tab navigation for different media types
+  $(document).ready(function () {
+    $('#dynamic-content').html(`
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/1ux_LZzTPOw?si=mLuStszjaeYhNWRX"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+        style="border-radius: 10px;">
+      </iframe>`);
+    $('.text-title').html('<h3>Video</h3>');
+    $('.text-content').html('<p>A 60 second promotional movie trailer played on TV, online as pre rolls and via Facebook, to promote the movie that was waiting to be written to our movie-loving target audience, and encourage them to enter.</p>');
+
+    $('.tab-nav a').click(function (e) {
+      e.preventDefault();
+
+      $('.tab-nav a').removeClass('active');
+      $(this).addClass('active');
+
+      var contentType = $(this).data('type');
+
+      $('.media-placeholder').removeClass('black-bg');
+
+      switch (contentType) {
+        case 'video':
+          $('#dynamic-content').html('<iframe width="100%" height="100%" style="border-radius: 10px;" src="https://www.youtube.com/embed/1ux_LZzTPOw?si=mLuStszjaeYhNWRX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>');
+          $('.text-title').html('<h3>Video</h3>');
+          $('.text-content').html('<p>A 60 second promotional movie trailer played on TV, online as pre rolls and via Facebook, to promote the movie that was waiting to be written to our movie-loving target audience, and encourage them to enter.</p>');
+          break;
+        case 'photography':
+          $('#dynamic-content').html(`
+          <div class="carousel-container">
+            <div class="carousel-slide active">
+              <img src="images/photo1.png" alt="Whitsunday Beach 1">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/photo2.png" alt="Whitsunday Beach 2">
+            </div>
+            <div class="carousel-dots">
+              <span class="carousel-dot active"></span>
+              <span class="carousel-dot"></span>
+            </div>
+          </div>`);
+          $('.text-title').html('<h3>Photography</h3>');
+          $('.text-content').html('<p>Shots posted on Facebook and Instagram every day inspired thousands of entries. We reacted to the storyline as it developed in real time, selecting and treating the next image according to the day`s winning scene.</p>');
+
+          // Carousel functionality
+          const slides = $('.carousel-slide');
+          const dots = $('.carousel-dot');
+
+          function showSlide(index) {
+            slides.removeClass('active');
+            dots.removeClass('active');
+            slides.eq(index).addClass('active');
+            dots.eq(index).addClass('active');
+          }
+
+          dots.click(function () {
+            const index = $(this).index();
+            showSlide(index);
+          });
+
+          // Auto-rotate slides every 5 seconds
+          let currentSlide = 0;
+          setInterval(function () {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+          }, 5000);
+
+          break;
+        case 'social':
+          $('#dynamic-content').html('<img src="images/photo3.png" alt="Social Content" class="storyboard" style="background-color: black; padding: 1px 5px; border-radius: 10px;">');
+          $('.text-title').html('<h3>Social</h3>');
+          $('.text-content').html('<p>The complete movie storyboard showcased the entire story, completely inspired by stunning images captured in the Whitsundays, with all 20 winning scenes accompanying the images.</p>');
+          break;
+        case 'pr':
+          $('#dynamic-content').html('<img src="images/photo4.png" class="storyboard" alt="PR Content">');
+          $('.text-title').html('<h3>PR</h3>');
+          $('.text-content').html('<p>We enlisted the help of Craig Pearce as script supervisor, who was tasked with choosing the winner each day to ensure the story flowed properly, and providing daily writing tips to encourage people to take part.</p>');
+          break;
+        case 'radio':
+          $('.media-placeholder').addClass('black-bg');
+          $('#dynamic-content').html('<p>This is the Radio content.</p>');
+          $('.text-title').html('<h3>Radio</h3>');
+          $('.text-content').html('<p>Live reads from NOVA presenters reflected the ever-evolving story of Jake in real time, and encouraged people to get involved to shape the story themselves.</p>');
+          break;
+        default:
+          $('#dynamic-content').html('<p>Default content here.</p>');
+      }
+    });
+  });
+</script>
+
+</html>
